@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Results</title>
+</head>
+<body>
+    <h1>Results</h1>
+    <h2>Prediction: {{ prediction }}</h2>
+    <h2>Probabilities:</h2>
+    <ul>
+        {% for label, prob in probabilities.items() %}
+            <li>{{ label }}: {{ prob*100 }}%</li>
+        {% endfor %}
+    </ul>
+    <h2>Original X-ray</h2>
+    <img src="/uploads/{{ original_image }}" alt="Original X-ray" width="500">
+    <h2>ROC Curve</h2>
+    <img src="/uploads/roc_curve.png" alt="ROC Curve" width="500">
+    <h2>Confusion Matrix</h2>
+    <img src="/uploads/confusion_matrix.png" alt="Confusion Matrix" width="500">
+</body>
+</html>
